@@ -5,7 +5,7 @@ provider "aws" {
 }
 
 resource "aws_security_group" "mine" {
- name = "nginx"
+ name = "mine"
  description = "Used in the terraform"
  
  ingress {
