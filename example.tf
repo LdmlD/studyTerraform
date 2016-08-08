@@ -7,7 +7,9 @@ provider "aws" {
 resource "aws_security_group" "mine" {
  name = "nginx"
  description = "Used in the terraform"
-
+ access_key = "${var.access_key}"
+ secret_key = "${var.secret_key}"
+ 
  ingress {
   from_port   = 22
   to_port     = 22
