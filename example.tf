@@ -65,7 +65,7 @@ resource "terraform_remote_state" "mine" {
         bucket = "myterraformremotestate"
         access_key = "${var.access_key}"
         secret_key = "${var.secret_key}"
-        key = "network/terraform.tfstate"
+        key = "terraform.tfstate"
         region = "us-west-2"
     }
 }
