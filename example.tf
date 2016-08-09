@@ -34,6 +34,13 @@ resource "aws_security_group" "mine" {
   cidr_blocks = ["${var.public_ip}"]
  }      
 
+ ingress {
+  from_port = 25
+  to_port     = 25 
+  protocol    = "tcp"
+  cidr_blocks = ["${var.public_ip}"]
+ }
+ 
  egress {    
   from_port   = 0
   to_port     = 0
@@ -58,11 +65,11 @@ resource "aws_instance" "mine" {
 }
 
 resource "terraform_remote_state" "mine" {
-    backend = "s3"
-    config {
-        bucket = "myterraformremotestate"
-        key = "terraform.tfstate"
-        region = "us-west-2"
-    }
+  backend = "s3"
+  config {
+    bucket = "myterraformremotestate"
+    key = "terraform.tfstate"
+    region = "us-west-2"
+  }
 }
 
