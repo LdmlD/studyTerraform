@@ -1,4 +1,6 @@
 provider "aws" {
+ access_key = "${var.access_key}"
+ secret_key = "${var.secret_key}"
  region     = "us-west-2"
 }
 
@@ -60,6 +62,8 @@ resource "aws_instance" "mine" {
 resource "terraform_remote_state" "mine" {
     backend = "s3"
     config {
+        access_key = "${var.access_key}"
+        secret_key = "${var.secret_key}"
         bucket = "myterraformremotestate"
         key = "terraform.tfstate"
         region = "us-west-2"
